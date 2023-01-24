@@ -1,7 +1,7 @@
 ---
 title: "Statistics and ML"
 subtitle: "MSSP Practicum Discussion"
-author: "MSSP Practicum II"
+author: "Dongkai Wu"
 date: "2023-01-24"
 output: html_document
 ---
@@ -61,11 +61,23 @@ ggplot(canopy, aes(distance, cover)) + geom_point(col = "gray") +
 predict(m, data.frame(distance = 0.5), se = TRUE, type = "response")
 ```
 
+```{r}
+res <- resid(m)
+plot(fitted(m), res)
+```
+
+
+
 Questions and tasks:
 
 - Comment on the fit, plot residuals and comment on them.
+Ans: the fit is fairly accurate, 
+
 - Comment on the prediction; does it seem reasonable?
 
+(1) they’re somewhat symmetrically distributed, tending to cluster towards the middle of the plot.
+(2) they’re clustered around the lower single digits of the y-axis.
+(3) in general, there is a blur pattern.
 
 ## ML 1: LOESS
 
